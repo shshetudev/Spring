@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></head>
+<body>
+<h1 style="text-align: center;color: red;border-style:solid;border-color: aqua ">Welcome to Student Form</h1>
+<div class="form-control">
+<form th:method="post" th:action="@{/save}" th:object="${student}">
+    <input class="form-control" type="text" th:field="*{name}" placeholder="Enter your Name"/> <br/><br/>
+    <input class="form-control" type="number" th:field="*{roll}" placeholder="Enter your Roll"/><br/><br/>
+    <input class="form-control" type="number" th:field="*{age}" placeholder="Enter your Age"/><br/><br/>
+    <button type="submit">Submit</button><br/><br/>
+
+</form>
+    <a th:href="@{/student-list}">Show The List</a>
+
+</div>
+</body>
+</html>

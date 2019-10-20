@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--Never forget to add thymeleaf -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body>
+<!--Add a button to add student-->
+
+<div align="center"></div>
+<!--<a  th:href="@{/}">Add Student</a>-->
+<a th:href="@{/}">Add Student</a> <!--Button will only work for form-->
+<div class="table-responsive">
+<table class="table table-striped table-hover">
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Roll</th>
+    <th>Age</th>
+
+</tr>
+</thead>
+
+<tbody>
+<!--check for the controller and see if html page is matching or not
+if matches then: see what is the object name
+-->
+  <tr th:each="tempStudent: ${studentList}">
+      <td th:text="${tempStudent.name}"/> <!--th:text is used to visualize-->
+      <td th:text="${tempStudent.roll}"/>
+      <td th:text="${tempStudent.age}"/>
+      <td><a th:href="@{/update}">Update</a></td>
+      <td><a th:href="@{/delete/{id}(id=${tempStudent.id})}">Delete</a></td>
+
+  </tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>
